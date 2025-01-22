@@ -1,0 +1,30 @@
+/* src/components/LandingHeader.js */
+.header {
+    color: red;
+    padding: 20px 0;
+}
+
+.landing-header .container h1 {
+    color: #B3E5FC;
+}
+
+.container {
+    background-color: #001122;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #ffa500;
+}

@@ -1,0 +1,23 @@
+.main-content {
+    padding: 20px;
+    background-color: #0A2438;
+    flex-grow: 1;
+}
+
+.content-section {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.content-section h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.content-section p {
+    color: #666;
+    line-height: 1.6;
+}
