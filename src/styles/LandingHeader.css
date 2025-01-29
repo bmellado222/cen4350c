@@ -1,30 +1,141 @@
 /* src/components/LandingHeader.js */
-.header {
-    color: red;
-    padding: 20px 0;
+.landing-header {
+    background-color: #001122;
+    max-width: 100%;
+    height: 64px;
+    z-index: 10;
 }
 
-.landing-header .container h1 {
+.header-content {
+    display: flex;
+    max-width: 1100px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    height: 64px;
+    padding: 0 5px 0;
+}
+
+.left-side {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.right-side {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+
+}
+
+
+
+@media (max-width: 1100px) {
+    .header-content {
+        display: flex;
+        align-items: center;
+    }
+
+    .fist {
+        padding-left: 150px;
+    }
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    flex-direction: row;
+    font-size: 18px;
+}
+
+.nav ul li a {
+    color: #E0E0E0;
+    text-decoration: none;
+}
+
+.nav ul li a:hover {
     color: #B3E5FC;
 }
 
-.container {
-    background-color: #001122;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
+
+.hamburger {
+    background: none;
+    border: none;
+    color: #EAEAEA;
+    font-size: 24px;
+    cursor: pointer;
+    padding-right: 15px;
+    padding-top: 5px;
 }
 
-.nav a {
-    color: white;
-    text-decoration: none;
+.hamburger:hover {
+    color: #B3E5FC;
+}
+
+
+.magnifying-glass {
+    background: none;
+    border: none;
+    color: #EAEAEA;
+    font-size: 24px;
+    cursor: pointer;
+    padding-top: 5px;
+}
+
+.magnifying-glass:hover {
+    color: #B3E5FC;
+}
+
+.fist {
+    background: none;
+    border: none;
+    color: #EAEAEA;
+    font-size: 24px;
+    cursor: pointer;
+    padding-right: 15px;
+    padding-left: 25px;
+    padding-top: 5px;
+
+}
+
+.fist:hover {
+    color: #B3E5FC;
+
+}
+
+.bell {
+    background: none;
+    border: none;
+    color: #EAEAEA;
+    font-size: 24px;
+    cursor: pointer;
+    padding-right: 15px;
+    padding-top: 5px;
+}
+
+.bell:hover {
+    color: #B3E5FC;
+}
+
+
+.search-bar {
+    border: none;
+    border-radius: 1px;
+    background-color: #002B3E;
+    justify-content: center;
+    color: #EAEAEA;
+    padding: 15px 15px 15px 15px;
+}
+
+.website-title {
+    background: none;
+    border: none;
+    color: #B3E5FC;
+    font-size: 24px;
+    font-style: italic;
     font-weight: bold;
-    transition: color 0.3s;
-}
-
-.nav a:hover {
-    color: #ffa500;
+    cursor: pointer;
+    padding-left: 15px;
 }
