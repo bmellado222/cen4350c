@@ -1,0 +1,39 @@
+.term-details {
+    display: block;
+    width: 100%;
+    min-width: 300px;
+    color: #B3E5FC;
+    position: relative;
+}
+
+.term-name {
+    background: linear-gradient(180deg, #FF4500 0%, #FFD700 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Rubik, serif;
+    font-style: italic;
+    font-weight: 700;
+    line-height: normal;
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+.term-header {
+    display: flex;
+    align-items: center;
+}
+
+.term-game-logo {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+
+}
+
+.term-description {
+    font-family: "Instrument Sans", serif;
+    font-size: 0.938em;
+    margin: 15px 0 0 15px;
+    text-align: left;
+}
