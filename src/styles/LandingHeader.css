@@ -1,7 +1,10 @@
 /* src/components/LandingHeader.js */
 .landing-header {
     background-color: #001122;
-    max-width: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 64px;
     z-index: 10;
     box-shadow: 0 1px 4px rgba(0, 0, 0, .5);

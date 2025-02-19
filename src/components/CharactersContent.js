@@ -1,16 +1,27 @@
 import React from 'react';
-/*
 import '../styles/CharactersContent.css';
-import generateFakeData from "./fakeGame";
+import generateFakeData from './fakeGame';
 import GameDropdown from "./GameDropdown";
+import { gamesStatic } from './staticGame'
 
-
- */
 
 const CharactersContent = () => {
+    const games = generateFakeData();
+
     return (
         <div className="characters-content">
-            <h1>Placeholder</h1>
+            <div className="characters-container">
+                {gamesStatic.map((game, index) => (
+                    <div className="games-container" key={index}>
+                        <GameDropdown game={game} characters={game.characters} />
+                    </div>
+                ))}
+                {games.map(({ game, characters }, index) => (
+                    <div className="games-container" key={index}>
+                        <GameDropdown game={game} characters={characters} />
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };

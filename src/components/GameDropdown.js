@@ -1,30 +1,33 @@
 import React, {useState} from "react";
+import { useNavigate } from 'react-router-dom';
 import '../styles/GameDropdown.css';
 import {IoMdStarOutline} from "react-icons/io";
 
 const GameDropdown = ({ game, characters }) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
+    const handleCharacterClick = (characterId) => {
+        navigate(`/characters/${characterId}`);
+    };
 
+    const [isOpen, setIsOpen] = useState(false);
     const toggleDropdown = () => setIsOpen(!isOpen);
 
-    const handleCharacterClick = (characterId) => {
-        window.location.href = `/characters/${characterId}`;
-    };
 
     return (
         <div className="dropdown-container">
             <button onClick={toggleDropdown} className={`dropdown-button ${isOpen ? 'open' : ''}`}>
-                <img src={game.logo} alt={`${game.name} Logo`} className="game-logo" />
+                <img src={game.logo} alt={`${game.name} Logo`} className="characters-game-logo" />
                 <span className="game-name">{game.name}</span>
-                <span className={`chevron ${isOpen ? 'up' : 'down'}`}>⌄</span>
+                <span className={`characters-chevron ${isOpen ? 'up' : 'down'}`}>⌄</span>
             </button>
             {isOpen && (
                 <div className="dropdown-menu">
                     {characters.map((character) => (
-                        <button key={character.id} className="actor-item" onClick={() => handleCharacterClick(character.id)}>
-                            <img src={character.portrait} alt={`${character.name} Portrait`} className="actor-portrait" />
+                        <button key={character.id} className="character-item" onClick={() => handleCharacterClick(character.id)}>
+                            <img src={character.portrait} alt={`${character.name} Portrait`} className="character-portrait" />
                             <span className="character-name">{character.name}</span>
-                            <span className="favorite-icon"><IoMdStarOutline /></span>
+                            <span className="characters-favorite-icon">
+                                <IoMdStarOutline style={{ width: '40px', height: '40px' }} /></span>
                         </button>
                     ))}
                 </div>
