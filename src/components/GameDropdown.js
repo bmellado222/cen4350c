@@ -4,9 +4,12 @@ import '../styles/GameDropdown.css';
 import {IoMdStarOutline} from "react-icons/io";
 
 const GameDropdown = ({ game, characters }) => {
+    console.log("Characters received for dropdown:", characters);
+    console.log("Games received for dropdown:", game);
+
     const navigate = useNavigate();
-    const handleCharacterClick = (characterId) => {
-        navigate(`/characters/${characterId}`);
+    const handleCharacterClick = (characterId, fightingCharacterName) => {
+        navigate(`/characters/${characterId}-${fightingCharacterName.replace(/\s+/g, '-')}`);
     };
 
     const [isOpen, setIsOpen] = useState(false);
@@ -16,16 +19,16 @@ const GameDropdown = ({ game, characters }) => {
     return (
         <div className="dropdown-container">
             <button onClick={toggleDropdown} className={`dropdown-button ${isOpen ? 'open' : ''}`}>
-                <img src={game.logo} alt={`${game.name} Logo`} className="characters-game-logo" />
-                <span className="game-name">{game.name}</span>
+                <img src={game.fightingGameLogo} alt={`${game.fightingGameTitle} Logo`} className="characters-game-logo" />
+                <span className="game-name">{game.fightingGameTitle}</span>
                 <span className={`characters-chevron ${isOpen ? 'up' : 'down'}`}>⌄</span>
             </button>
             {isOpen && (
                 <div className="dropdown-menu">
                     {characters.map((character) => (
-                        <button key={character.id} className="character-item" onClick={() => handleCharacterClick(character.id)}>
-                            <img src={character.portrait} alt={`${character.name} Portrait`} className="character-portrait" />
-                            <span className="character-name">{character.name}</span>
+                        <button key={character.fightingCharacterId} className="character-item" onClick={() => handleCharacterClick(character.fightingCharacterId, character.fightingCharacterName)}>
+                            <img src={character.fightingCharacterPortraitUrl} alt={`${character.fightingCharacterName} Portrait`} className="character-portrait" />
+                            <span className="character-name">{character.fightingCharacterName}</span>
                             <span className="characters-favorite-icon">
                                 <IoMdStarOutline style={{ width: '40px', height: '40px' }} /></span>
                         </button>

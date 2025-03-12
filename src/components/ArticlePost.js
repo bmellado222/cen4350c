@@ -10,15 +10,15 @@ const ArticlePost = ({ article }) => {
     };
 
     return (
-        <a href={article.link} className="article-card">
+        <a href={article.articleLink} className="article-card">
             <div className="thumbnail">
-                <img src={article.thumbnail} alt="Article Thumbnail" />
+                <img src={article.articleThumbnailUrl} alt="Article Thumbnail" />
             </div>
             <div className="details">
-                <img src={article.gameLogo} alt="Game Logo" className="game-logo" />
-                <div className="article-name">{article.name}</div>
-                <div className="article-date">{new Date(article.date).toLocaleDateString()}</div>
-                <div className="elapsed-months">{getElapsedMonths(article.date)} months ago</div>
+                <img src={article.articleLogoUrl} alt="Game Logo" className="game-logo" />
+                <div className="article-name">{article.articleTitle}</div>
+                <div className="article-date">{new Date(article.dateCreated).toLocaleDateString()}</div>
+                <div className="elapsed-months">{getElapsedMonths(article.dateCreated)} months ago</div>
             </div>
         </a>
     );

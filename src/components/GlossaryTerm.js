@@ -8,10 +8,10 @@ const GlossaryTerm = ({ term }) => {
 
         <div className="term-details">
             <div className="term-header">
-                <span className="term-name">{term.name}</span>
-                <img src={term.gameLogo} alt="Game Logo" className="term-game-logo"/>
+                <span className="term-name">{term.termName}</span>
+                <img src={term.termLogoUrl} alt="Game Logo" className="term-game-logo"/>
             </div>
-            <div className="term-description">{term.description}</div>
+            <div className="term-description">{term.termDescription}</div>
         </div>
     );
 
