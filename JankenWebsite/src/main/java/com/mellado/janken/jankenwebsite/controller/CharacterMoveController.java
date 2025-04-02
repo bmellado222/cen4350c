@@ -1,7 +1,7 @@
 package com.mellado.janken.jankenwebsite.controller;
 
-import com.mellado.janken.jankenwebsite.entity.FightingCharacter;
-import com.mellado.janken.jankenwebsite.repository.FightingCharacterRepository;
+import com.mellado.janken.jankenwebsite.entity.CharacterMove;
+import com.mellado.janken.jankenwebsite.repository.CharacterMoveRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,15 +12,15 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/api/fighting-characters")
-public class FightingCharacterController {
+@RequestMapping("/api/character-moves")
+public class CharacterMoveController {
 
     @Autowired
-    private FightingCharacterRepository fightingCharacterRepository;
+    private CharacterMoveRepository characterMoveRepository;
 
 
     @GetMapping
-    public List<FightingCharacter> getAllFightingCharacters() {
-        return fightingCharacterRepository.findAllByOrderByFightingCharacterName();
+    public List<CharacterMove> getAllCharacterMoves() {
+        return characterMoveRepository.findAllByOrderByCharacterMoveNameDesc();
     }
 }

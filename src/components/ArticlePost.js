@@ -17,7 +17,7 @@ const ArticlePost = ({ article }) => {
             <div className="details">
                 <img src={article.articleLogoUrl} alt="Game Logo" className="game-logo" />
                 <div className="article-name">{article.articleTitle}</div>
-                <div className="article-date">{new Date(article.dateCreated).toLocaleDateString()}</div>
+                <div className="article-date">{article.dateCreated}</div>
                 <div className="elapsed-months">{getElapsedMonths(article.dateCreated)} months ago</div>
             </div>
         </a>

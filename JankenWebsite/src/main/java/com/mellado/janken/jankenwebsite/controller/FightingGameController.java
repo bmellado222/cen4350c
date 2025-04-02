@@ -20,6 +20,6 @@ public class FightingGameController {
 
     @GetMapping
     public List<FightingGames> getAllFightingGames() {
-        return fightingGameRepository.findAll();
+        return fightingGameRepository.findAllByOrderByFightingGameTitleDesc();
     }
 }

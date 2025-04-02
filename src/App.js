@@ -25,6 +25,7 @@ function App() {
         <div className="App">
           <Routes>
               <Route path="/" element={<><LandingHeader /><LandingContent /></>} />
+              <Route path="/articles/search" element={<><LandingHeader /><LandingContent /></>} />
               <Route path="/glossary" element={<><LandingHeader /><GlossaryContent /></>} />
               <Route path="/characters" element={<><LandingHeader /><CharactersContent /></>} />
               <Route path="/characters/:characterId" element={<><LandingHeader /><CharacterGuide /></>} />
