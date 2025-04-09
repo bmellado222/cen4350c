@@ -84,7 +84,7 @@ const LandingHeader = () => {
                 console.error('Unknown type:', type);
                 return;
         }
-        navigate(basePath); // Navigate to the generated path
+        navigate(basePath);
 
         setQuery('');
         setShowDropdown(false);
