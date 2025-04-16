@@ -7,7 +7,7 @@ import {IoMdStarOutline} from "react-icons/io";
 const CharacterGuide = () => {
     const { characterId } = useParams();
 
-    const [fightingCharacter, setFightingCharacter] = useState([]);
+    const [fightingCharacter, setFightingCharacter, characterMove, setCharacterMove, characterCombo, setCharacterCombo] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -28,7 +28,20 @@ const CharacterGuide = () => {
                     // Handle the search-based logic
                     const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/search`, { params: { query } });
                     setFightingCharacter(response.data.fightingCharacters[0] || {});
+
+                    const movesResponse = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/character-moves`);
+                    const allMoves = movesResponse.data;
+
+                    const filteredMoves = allMoves.filter(move =>
+                        move.FightingCharacter_fightingCharacterId && // Ensure the property exists
+                        move.FightingCharacter_fightingCharacterId.fightingCharacterId === fightingCharacter.fightingCharacterId
+                    );
+
+
+
                     console.log('Search API Response:', response.data);
+                    console.log('All Moves:', allMoves);
+                    console.log('Specific Moves:', filteredMoves);
                 } else if (characterId) {
                     // Fetch the character by ID
                     const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/fighting-characters`);
@@ -92,18 +105,33 @@ const CharacterGuide = () => {
                 {activeTab === 'Overview' && (
                     <div className="overview-content">
                         <div className="image-container">
-                            <img src={fightingCharacter.fightingCharacterPortraitUrl} alt={`${fightingCharacter.fightingCharacterName} Portrait`} className="guide-character-portrait"/></div>
+                            <img src={fightingCharacter.fightingCharacterPortraitUrl}
+                                 alt={`${fightingCharacter.fightingCharacterName} Portrait`}
+                                 className="guide-character-portrait"/></div>
                         <h2 className="overview-heading">Overview</h2>
-                        <p>
-                            {fightingCharacter.fightingCharacterOverview}
-                        </p>
+                        <p dangerouslySetInnerHTML={{__html: fightingCharacter.fightingCharacterOverview}}/>
+                        <div className="strengths-weaknesses-bar">
+                            <div className="strengths">
+                                <h3>Strengths</h3>
+                                <p dangerouslySetInnerHTML={{__html: fightingCharacter.fightingCharacterStrength}}/>
+                            </div>
+                            <div className="separator-line"></div>
+                            <div className="weaknesses">
+                                <h3>Weaknesses</h3>
+                                <p dangerouslySetInnerHTML={{__html: fightingCharacter.fightingCharacterWeakness}}/>
+                            </div>
+                        </div>
                     </div>
                 )}
-                {activeTab === 'Movelist' && <div>Movelist Content</div>}
+                {activeTab === 'Movelist' && (
+                    <div className="movelist-content">
+
+
+                    </div>)}
                 {activeTab === 'Combos' && <div>Combos Content</div>}
-                    </div>
-                    </div>
-                    );
-                };
+            </div>
+        </div>
+    );
+};
 
 export default CharacterGuide;

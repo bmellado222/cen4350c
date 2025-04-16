@@ -116,9 +116,6 @@ const LandingHeader = () => {
                         <button className="fist">
                             <FaFistRaised />
                         </button>
-                        <button className="bell">
-                            <BsBellFill />
-                        </button>
                         </div>
                     </>
                 ) : (
@@ -175,9 +172,6 @@ const LandingHeader = () => {
 
                             <button className="fist">
                                 <FaFistRaised/>
-                            </button>
-                            <button className="bell">
-                                <BsBellFill/>
                             </button>
                         </div>
                     </>

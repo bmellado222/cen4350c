@@ -61,9 +61,6 @@ const GlossaryContent = () => {
 
     return (
         <main className="glossary-content">
-            <div className="search-container">
-                <input type="text" className="term-search-bar" placeholder="Search..."/>
-            </div>
             <div className="glossary-section">
                 <div className="terms-container">
                     {glossary.map((term, index) => (

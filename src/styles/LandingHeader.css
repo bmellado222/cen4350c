@@ -109,21 +109,6 @@
 
 }
 
-.bell {
-    background: none;
-    border: none;
-    color: #EAEAEA;
-    font-size: 24px;
-    cursor: pointer;
-    padding-right: 15px;
-    padding-top: 5px;
-}
-
-.bell:hover {
-    color: #B3E5FC;
-}
-
-
 .search-bar {
     border: none;
     border-radius: 1px;

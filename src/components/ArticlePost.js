@@ -2,12 +2,26 @@ import React from 'react';
 import '../styles/ArticlePost.css';
 
 const ArticlePost = ({ article }) => {
-    const getElapsedMonths = (date) => {
+    const getElapsedTime = (date) => {
         const now = new Date();
         const articleDate = new Date(date);
-        const diffTime = Math.abs(now - articleDate);
-        return Math.ceil(diffTime / (1000 * 60 * 60 * 24 * 30));
+        console.log(Date, now);
+        const diffTime = now - articleDate;
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+        const diffMonths =
+            (now.getFullYear() - articleDate.getFullYear()) * 12 +
+            (now.getMonth() - articleDate.getMonth());
+
+        if (diffMonths > 0) {
+            return `${diffMonths} months ago`;
+        } else {
+            const weeks = Math.floor(diffDays / 7);
+            return `${weeks} weeks ago`;
+        }
     };
+
+
 
     return (
         <a href={article.articleLink} className="article-card">
@@ -18,7 +32,7 @@ const ArticlePost = ({ article }) => {
                 <img src={article.articleLogoUrl} alt="Game Logo" className="game-logo" />
                 <div className="article-name">{article.articleTitle}</div>
                 <div className="article-date">{article.dateCreated}</div>
-                <div className="elapsed-months">{getElapsedMonths(article.dateCreated)} months ago</div>
+                <div className="elapsed-time">{getElapsedTime(article.dateCreated)}</div>
             </div>
         </a>
     );
