@@ -3,15 +3,10 @@ package com.mellado.janken.jankenwebsite.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Objects;
 
-@CrossOrigin(origins = "http://localhost:3000")
-@RestController
-@RequestMapping("/api/move-tags")
+@Entity
+@Table(name = "movetags")
 public class MoveTags {
 
     @EmbeddedId

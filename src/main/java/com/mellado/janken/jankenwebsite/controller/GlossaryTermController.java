@@ -17,7 +17,7 @@ public class GlossaryTermController {
 
     @GetMapping
     public List<GlossaryTerms> getAllGlossaryTerms() {
-        return glossaryTermRepository.findAllByOrderByTermNameDesc();
+        return glossaryTermRepository.findAllByOrderByTermNameAsc();
     }
 
 }

@@ -8,6 +8,8 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 
+import java.util.List;
+
 @Configuration
 public class SecurityConfig {
 
@@ -25,6 +27,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/tags/**").permitAll() // Allow public access to fighting-characters
                         .requestMatchers("/api/character-moves/**").permitAll() // Allow public access to fighting-characters
                         .requestMatchers("/api/character-combos/**").permitAll() // Allow public access to fighting-characters
+                        .requestMatchers("/api/search/**").permitAll() // Allow public access to the search bar
                         .anyRequest().authenticated() // Secure all other endpoints
                 );
         return http.build();
@@ -33,9 +36,9 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOrigin("http://localhost:3000");
-        configuration.addAllowedMethod("*");
-        configuration.addAllowedHeader("*");
+        configuration.setAllowedOrigins(List.of("http://localhost:3000"));
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
+        configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
         configuration.setAllowCredentials(true);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);

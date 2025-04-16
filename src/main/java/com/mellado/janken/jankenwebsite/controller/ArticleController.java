@@ -1,7 +1,6 @@
 package com.mellado.janken.jankenwebsite.controller;
 import com.mellado.janken.jankenwebsite.entity.Articles;
 import com.mellado.janken.jankenwebsite.repository.ArticleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,9 +9,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/articles")
 public class ArticleController {
+    private final ArticleRepository articleRepository;
 
-    @Autowired
-    private ArticleRepository articleRepository;
+    public ArticleController(ArticleRepository articleRepository){
+        this.articleRepository = articleRepository;
+    }
 
     @GetMapping
     public List<Articles> getAllArticles() {

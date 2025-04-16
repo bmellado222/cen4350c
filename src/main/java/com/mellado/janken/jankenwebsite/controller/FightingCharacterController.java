@@ -2,7 +2,6 @@ package com.mellado.janken.jankenwebsite.controller;
 
 import com.mellado.janken.jankenwebsite.entity.FightingCharacter;
 import com.mellado.janken.jankenwebsite.repository.FightingCharacterRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,10 +13,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/fighting-characters")
 public class FightingCharacterController {
+    private final FightingCharacterRepository fightingCharacterRepository;
 
-    @Autowired
-    private FightingCharacterRepository fightingCharacterRepository;
-
+    public FightingCharacterController(FightingCharacterRepository fightingCharacterRepository) {
+        this.fightingCharacterRepository = fightingCharacterRepository;
+    }
 
     @GetMapping
     public List<FightingCharacter> getAllFightingCharacters() {
