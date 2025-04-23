@@ -10,7 +10,7 @@
     top: 64px;
     color: #fff;
     text-align: center;
-    z-index: 10;
+    z-index: 9;
     max-width: 1100px;
     width: 100%;
     margin: 0 auto;
@@ -78,7 +78,7 @@
 
 }
 
-.image-container {
+.portrait-container {
     float: left;
     width: 500px;
     height: 246px;
@@ -88,7 +88,7 @@
     background: linear-gradient(180deg, #FF4500 0%, #C23F0F 4%, #A73C15 12.5%, #7D3820 30.5%, #002B3E 100%);
 }
 
-.image-container img {
+.portrait-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -96,7 +96,7 @@
     flex-shrink: 0;
 }
 
-.image-container::before {
+.portrait-container::before {
     content: "";
     position: absolute;
     top: 0;
@@ -108,7 +108,7 @@
 }
 
 
-.image-container::after {
+.portrait-container::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -191,4 +191,88 @@
 .separator-line {
     width: 2px;
     background-color: #EAEAEA;
+}
+
+.movelist-content {
+    color: #B3E5FC;
+    font-family: "Instrument Sans", serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: left;
+    z-index: 10;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.move-container {
+    background: #001122;
+    padding: 10px;
+    border-radius: 5px;
+    color: #EAEAEA;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid #E0E0E0;
+}
+
+.character-move-name {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #FFD700;
+}
+
+.move-attributes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.move-attribute {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    padding: 5px;
+    background: #333;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.attribute-header {
+    font-weight: bold;
+    color: #FFD700;
+    margin-bottom: 3px;
+}
+
+.character-move-description {
+    margin-top: 10px;
+    font-size: 1em;
+    line-height: 1.4;
+    color: #E0E0E0;
+}
+
+.move-notation-sequence {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.move-notation {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #FFD700;
+    padding: 5px;
+    background-color: #222;
+    border-radius: 5px;
+}
+
+
+.combo-notation {
+    width: 40px;
+    height: 40px;
 }
